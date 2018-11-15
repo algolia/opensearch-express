@@ -16,6 +16,7 @@ app.get('/suggest', async (req, res) => {
     const { hits } = await suggestionsIndex.search({
       query,
       attributesToRetrieve: ['query', 'exact_nb_hits'],
+      attributesToHighlight: [],
     });
 
     res.type('json');
@@ -46,6 +47,7 @@ app.get('/results', async (req, res) => {
       query,
       attributesToRetrieve: ['name'],
       attributesToSnippet: ['description'],
+      attributesToHighlight: [],
     });
 
     res.send(`
