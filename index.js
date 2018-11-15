@@ -15,7 +15,7 @@ app.get('/suggest', async (req, res) => {
     const { query } = req.query;
     const { hits } = await suggestionsIndex.search({
       query,
-      attributesToRetrieve: ['query', 'exact_nb_hits'],
+      attributesToRetrieve: ['query', 'npm-search'],
       attributesToHighlight: [],
     });
 
