@@ -49,8 +49,9 @@ app.get('/results', async (req, res) => {
       attributesToSnippet: ['description'],
       attributesToHighlight: [],
     });
-
-    res.send(`
+    res.type('xml');
+    res.send(
+      `
       <?xml version="1.0" encoding="UTF-8"?>
       <rss
         version="2.0"
@@ -87,7 +88,8 @@ app.get('/results', async (req, res) => {
             .join('\n')}
         </channel>
       </rss>
-    `);
+    `.trim()
+    );
   } catch ({ message }) {
     res.type('json');
     res.send({
@@ -99,7 +101,8 @@ app.get('/results', async (req, res) => {
 app.get('/opensearch.xml', (req, res) => {
   // res.type('application/opensearchdescription+xml');
   res.type('xml');
-  res.send(`
+  res.send(
+    `
     <OpenSearchDescription
       xmlns="http://a9.com/-/spec/opensearch/1.1/"
       xmlns:moz="http://www.mozilla.org/2006/browser/search/"
@@ -127,7 +130,8 @@ app.get('/opensearch.xml', (req, res) => {
         https://yarnpkg.com/favicon.ico
       </Image>
     </OpenSearchDescription>
-  `);
+  `.trim()
+  );
 });
 
 app.get('/', (req, res) => {
