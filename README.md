@@ -7,6 +7,26 @@ This is an experiment and has not yet been validated
 3. `/suggest?query=XXX` -> JSON response for query suggestions ([docs](http://www.opensearch.org/Specifications/OpenSearch/Extensions/Suggestions/1.1#Declaring_a_JSON-formatted_search_suggestion_URL))
 4. `/results?query=XXX` -> XML/RSS response results ([docs](https://github.com/dewitt/opensearch/blob/master/opensearch-1-1-draft-6.md#example-of-opensearch-response-elements-in-rss-20))
 
+## Getting started
+
+1. install dependencies
+
+```sh
+yarn # (or npm install)
+```
+
+2. start (in development mode)
+
+```sh
+yarn dev # (or npm run dev)
+```
+
+3. deploy somewhere and run
+
+```sh
+yarn start # (or npm run start)
+```
+
 ## Uses
 
 - express
